@@ -1,1 +1,0 @@
-Site Mecanica 4 Tempos - 2025, Todos os direitos reservados!
