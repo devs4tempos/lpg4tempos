@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#212121">
+  <meta name="description" content="Treinamentos profissionais da Mecânica 4 Tempos com certificado e suporte via WhatsApp.">
+  <title>Treinamentos | Mecânica 4 Tempos</title>
+  <style>
+    :root {
+      --ink: #212121;
+      --ink-soft: #333333;
+      --red: #d32f2f;
+      --red-dark: #b71c1c;
+      --paper: #ffffff;
+      --mist: #f5f5f5;
+      --line: #e4e4e4;
+      --muted: #5f5f5f;
+      --green: #178a48;
+      --container: 1110px;
+      --shadow: 0 5px 15px rgba(0,0,0,.1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--paper); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.modal-open { overflow: hidden; }
+    button, a { font: inherit; -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid #ef5350; outline-offset: 3px; }
+
+    .container { width: min(calc(100% - 40px), var(--container)); margin-inline: auto; }
+    .header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      color: white;
+      background: var(--ink);
+      box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    }
+    .header-inner {
+      min-height: 83px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 3px solid var(--red);
+      border-radius: 50%;
+      color: white;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: -.06em;
+    }
+    .nav { display: flex; align-items: center; gap: 27px; font-weight: 600; }
+    .nav a { position: relative; transition: color .2s; }
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -8px;
+      height: 2px;
+      background: var(--red);
+      transition: right .2s;
+    }
+    .nav a:hover { color: #ffcdd2; }
+    .nav a:hover::after { right: 0; }
+
+    .hero {
+      position: relative;
+      min-height: 610px;
+      padding: 160px 20px 80px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.8)),
+        repeating-linear-gradient(135deg, transparent 0 42px, rgba(211,47,47,.13) 42px 44px),
+        radial-gradient(circle at 78% 32%, #6c1d1d 0, #292929 36%, #151515 70%);
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 410px;
+      height: 410px;
+      right: -80px;
+      top: 120px;
+      box-shadow: inset 0 0 0 48px rgba(211,47,47,.08), inset 0 0 0 88px rgba(255,255,255,.025);
+    }
+    .hero::after { width: 260px; height: 260px; left: -95px; bottom: -70px; border-style: dashed; }
+    .hero-content { position: relative; z-index: 2; max-width: 930px; }
+    .hero-kicker {
+      margin: 0 0 14px;
+      color: #ffcdd2;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.22;
+      letter-spacing: -.035em;
+      text-wrap: balance;
+    }
+    .hero-copy {
+      max-width: 720px;
+      margin: 20px auto 29px;
+      font-size: clamp(17px, 2vw, 20px);
+      line-height: 1.65;
+      color: #f0f0f0;
+    }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      min-height: 50px;
+      padding: 12px 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      line-height: 1.5;
+      transition: transform .2s, background .2s, color .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-red { color: white; background: var(--red); }
+    .btn-red:hover { background: var(--red-dark); }
+    .btn-outline { color: white; border: 2px solid white; background: transparent; }
+    .btn-outline:hover { color: var(--ink); background: white; }
+
+    .catalog { padding: 80px 0; background: var(--mist); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 42px; }
+    .section-title {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 120px;
+      height: 4px;
+      margin-top: 12px;
+      background: var(--red);
+    }
+    .section-copy { max-width: 650px; margin: 14px 0 0; color: var(--muted); }
+    .carousel-nav { display: flex; gap: 9px; flex: 0 0 auto; }
+    .arrow {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #cecece;
+      border-radius: 4px;
+      color: var(--ink);
+      background: white;
+      cursor: pointer;
+      font-size: 20px;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    .arrow:hover { color: white; background: var(--red); border-color: var(--red); }
+    .track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: calc((100% - 60px) / 3);
+      gap: 30px;
+      overflow-x: auto;
+      padding: 4px 2px 24px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: #bdbdbd transparent;
+      overscroll-behavior-inline: contain;
+    }
+    .track::-webkit-scrollbar { height: 7px; }
+    .track::-webkit-scrollbar-thumb { border-radius: 8px; background: #bdbdbd; }
+    .course-card {
+      min-width: 0;
+      scroll-snap-align: start;
+      overflow: hidden;
+      border-radius: 5px;
+      background: white;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .course-card:hover, .course-card:focus-visible { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,.15); }
+    .course-top {
+      position: relative;
+      min-height: 132px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      color: white;
+      background: var(--red);
+    }
+    .course-top::before, .course-top::after {
+      content: "";
+      position: absolute;
+      border: 2px solid rgba(255,255,255,.23);
+      border-radius: 50%;
+    }
+    .course-top::before { width: 125px; height: 125px; right: -35px; top: -45px; }
+    .course-top::after { width: 64px; height: 64px; right: 20px; top: 34px; border-style: dashed; }
+    .course-code { position: relative; z-index: 2; font-size: 42px; font-weight: 800; letter-spacing: -.06em; }
+    .course-number { position: absolute; right: 16px; bottom: -21px; color: rgba(255,255,255,.17); font-size: 96px; font-weight: 800; line-height: 1; }
+    .available {
+      position: absolute;
+      z-index: 3;
+      top: 13px;
+      right: 13px;
+      padding: 5px 9px;
+      border-radius: 3px;
+      color: var(--red-dark);
+      background: white;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .course-body { min-height: 332px; padding: 24px; display: flex; flex-direction: column; }
+    .course-category { margin: 0 0 8px; color: var(--red); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .course-card h3 { margin: 0; font-size: 21px; line-height: 1.35; }
+    .course-summary { margin: 13px 0 20px; color: var(--muted); font-size: 14px; }
+    .benefits { display: grid; gap: 7px; margin-top: auto; }
+    .benefits span { display: flex; align-items: center; gap: 8px; color: #4d4d4d; font-size: 13px; }
+    .benefits span::before { content: "✓"; color: var(--green); font-weight: 900; }
+    .course-footer { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .price small { display: block; color: #777; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    .price strong { display: block; margin-top: 2px; font-size: 21px; }
+    .details { color: var(--red); font-size: 13px; font-weight: 700; white-space: nowrap; }
+
+    .support {
+      padding: 64px 20px;
+      color: white;
+      text-align: center;
+      background: var(--ink);
+    }
+    .support h2 { margin: 0; font-size: clamp(28px, 4vw, 38px); }
+    .support p { max-width: 700px; margin: 14px auto 26px; color: #e0e0e0; }
+    .trust {
+      padding: 80px 0;
+      background: white;
+    }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .trust-item { padding: 28px; border-left: 4px solid var(--red); background: var(--mist); }
+    .trust-item strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .trust-item p { margin: 0; color: var(--muted); font-size: 14px; }
+    .about { padding: 80px 0; background: var(--mist); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about h2 { margin: 0 0 18px; font-size: clamp(30px, 4vw, 40px); line-height: 1.25; }
+    .about h2::after { content: ""; display: block; width: 100px; height: 4px; margin-top: 12px; background: var(--red); }
+    .about p { margin: 0; color: var(--muted); }
+    .about-list { display: grid; gap: 16px; }
+    .about-item { display: flex; gap: 15px; align-items: center; padding: 18px; color: var(--ink); background: white; box-shadow: var(--shadow); }
+    .about-icon { width: 46px; height: 46px; flex: 0 0 auto; display: grid; place-items: center; color: white; background: var(--red); font-size: 20px; font-weight: 900; }
+    .about-item strong, .about-item small { display: block; }
+    .about-item small { color: #6b6b6b; }
+
+    footer { padding: 48px 0 18px; color: white; background: #000; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 34px; }
+    footer h2, footer h3 { margin: 0 0 14px; }
+    footer h2 { font-size: 26px; }
+    footer h3 { font-size: 17px; }
+    footer p { margin: 0; color: #cfcfcf; font-size: 14px; }
+    footer nav { display: grid; gap: 8px; }
+    footer a { color: #d7d7d7; }
+    footer a:hover { color: #ef5350; }
+    .copyright { padding-top: 18px; border-top: 1px solid #333; color: #aaa; text-align: center; font-size: 13px; }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      padding: 18px;
+      display: grid;
+      place-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity .22s, visibility .22s;
+    }
+    .modal.open { visibility: visible; opacity: 1; }
+    .backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.78); }
+    .dialog {
+      position: relative;
+      width: min(900px, 100%);
+      max-height: calc(100dvh - 36px);
+      overflow: auto;
+      border-radius: 5px;
+      background: white;
+      box-shadow: 0 20px 70px rgba(0,0,0,.42);
+      transform: translateY(12px);
+      transition: transform .22s;
+    }
+    .modal.open .dialog { transform: none; }
+    .close {
+      position: absolute;
+      z-index: 5;
+      top: 15px;
+      right: 15px;
+      width: 42px;
+      height: 42px;
+      border: 2px solid white;
+      border-radius: 4px;
+      color: white;
+      background: transparent;
+      cursor: pointer;
+    }
+    .dialog-head {
+      position: relative;
+      min-height: 245px;
+      padding: 54px 42px 35px;
+      display: flex;
+      align-items: end;
+      overflow: hidden;
+      color: white;
+      background: var(--red);
+    }
+    .dialog-head::before, .dialog-head::after {
+      content: "";
+      position: absolute;
+      border: 3px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+    }
+    .dialog-head::before { width: 290px; height: 290px; right: -45px; top: -95px; }
+    .dialog-head::after { width: 150px; height: 150px; right: 55px; top: -20px; border-style: dashed; }
+    .dialog-code { position: absolute; right: 28px; bottom: -50px; color: rgba(255,255,255,.14); font-size: 180px; font-weight: 800; line-height: 1; }
+    .dialog-title-wrap { position: relative; z-index: 2; max-width: 700px; }
+    .dialog-status { display: inline-block; margin-bottom: 11px; padding: 5px 9px; border-radius: 3px; color: var(--red-dark); background: white; font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .dialog h2 { margin: 0; font-size: clamp(29px, 5vw, 44px); line-height: 1.15; }
+    .dialog-lead { margin: 10px 0 0; color: #fff; }
+    .dialog-body { padding: 32px 42px 40px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 34px; }
+    .dialog-body h3 { margin: 0 0 12px; font-size: 18px; }
+    .description { margin: 0 0 25px; color: var(--muted); }
+    .modules { display: grid; gap: 9px; padding: 0; margin: 0; list-style: none; }
+    .modules li { display: flex; gap: 9px; font-size: 14px; }
+    .modules li::before { content: "✓"; color: var(--green); font-weight: 900; }
+    .offer { align-self: start; padding: 24px; border: 1px solid var(--line); background: var(--mist); }
+    .offer-label { color: #6c6c6c; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .modal-price { display: block; margin: 4px 0; font-size: 31px; }
+    .payment { display: block; color: #666; font-size: 12px; }
+    .offer .btn { width: 100%; margin-top: 18px; }
+    .offer-perks { display: grid; gap: 8px; margin-top: 17px; padding-top: 16px; border-top: 1px solid #ddd; }
+    .offer-perks span { display: flex; gap: 8px; color: #555; font-size: 12px; }
+    .offer-perks span::before { content: "✓"; color: var(--green); font-weight: 900; }
+
+    @media (max-width: 768px) {
+      .header-inner { min-height: 72px; }
+      .brand { font-size: 22px; }
+      .brand-mark { width: 36px; height: 36px; font-size: 12px; }
+      .nav a:not(:last-child) { display: none; }
+      .hero { min-height: 590px; padding-top: 135px; }
+      .track { grid-auto-columns: 100%; gap: 18px; margin-right: 0; padding-right: 0; }
+      .carousel-nav { display: none; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 38px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .dialog-body { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 576px) {
+      .container { width: min(calc(100% - 32px), var(--container)); }
+      .brand-mark { display: none; }
+      .brand { font-size: 20px; }
+      .nav { gap: 0; }
+      .nav a:last-child { padding: 8px 10px; border: 1px solid #555; border-radius: 4px; font-size: 12px; }
+      .hero { min-height: 610px; padding-inline: 16px; }
+      h1 { font-size: 38px; }
+      .hero-copy { font-size: 16px; }
+      .hero-actions { display: grid; }
+      .hero-actions .btn { width: 100%; }
+      .catalog, .trust, .about { padding-block: 64px; }
+      .section-head { align-items: start; }
+      .track { grid-auto-columns: 100%; }
+      .course-body { min-height: 315px; }
+      .support { padding-block: 54px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .modal { padding: 0; align-items: end; }
+      .dialog { width: 100%; max-height: 94dvh; border-radius: 5px 5px 0 0; }
+      .dialog-head { min-height: 275px; padding: 58px 20px 27px; }
+      .dialog-body { padding: 25px 20px max(28px, env(safe-area-inset-bottom)); }
+      .offer { order: -1; }
+    }
+    @media (hover: none) { .course-card:hover, .btn:hover { transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Mecânica 4 Tempos, início"><span class="brand-mark" aria-hidden="true">4T</span><span>Mecânica 4 Tempos</span></a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#treinamentos">Treinamentos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="https://www.mecanica4tempos.com/" target="_blank" rel="noopener noreferrer">Site oficial</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <p class="hero-kicker">Mecânica 4 Tempos</p>
+      <h1>Treinamentos Profissionais em Manutenção de Máquinas</h1>
+      <p class="hero-copy">Conhecimento técnico direto da oficina para você. Aprenda no seu ritmo, receba certificado e conte com suporte via WhatsApp.</p>
+      <div class="hero-actions">
+        <a class="btn btn-outline" href="#treinamentos">Conhecer Treinamentos</a>
+        <a class="btn btn-outline" href="https://wa.me/5537998060444?text=Olá%2C%20quero%20informações%20sobre%20os%20treinamentos." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="catalog" id="treinamentos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Nossos Treinamentos</h2>
+            <p class="section-copy">Formações online para quem trabalha com motores, máquinas e equipamentos. Todos disponíveis com certificado e suporte via WhatsApp.</p>
+          </div>
+          <div class="carousel-nav" aria-label="Controles dos treinamentos">
+            <button class="arrow" type="button" data-scroll="prev" aria-label="Ver treinamentos anteriores">←</button>
+            <button class="arrow" type="button" data-scroll="next" aria-label="Ver próximos treinamentos">→</button>
+          </div>
+        </div>
+        <div class="track" id="courseTrack" aria-label="Treinamentos disponíveis"></div>
+      </div>
+    </section>
+
+    <section class="support">
+      <h2>Precisa de ajuda para escolher?</h2>
+      <p>Nossa equipe está pronta para explicar os treinamentos e indicar a formação mais adequada para o seu momento profissional.</p>
+      <a class="btn btn-red" href="https://wa.me/5537998060444?text=Olá%2C%20preciso%20de%20ajuda%20para%20escolher%20um%20treinamento." target="_blank" rel="noopener noreferrer">Falar com a equipe</a>
+    </section>
+
+    <section class="trust">
+      <div class="container trust-grid">
+        <article class="trust-item"><strong>Certificado de conclusão</strong><p>Comprove sua capacitação após concluir o treinamento.</p></article>
+        <article class="trust-item"><strong>Suporte via WhatsApp</strong><p>Tire dúvidas durante sua jornada de aprendizado.</p></article>
+        <article class="trust-item"><strong>Experiência de oficina</strong><p>Conteúdo desenvolvido a partir da prática com equipamentos reais.</p></article>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div class="container about-grid">
+        <div>
+          <h2>Sobre a Mecânica 4 Tempos</h2>
+          <p>Referência em manutenção de máquinas para construção civil em Divinópolis e região. Nossos treinamentos transformam a experiência diária de oficina em uma sequência clara para você diagnosticar, revisar e trabalhar com mais confiança.</p>
+        </div>
+        <div class="about-list">
+          <div class="about-item"><span class="about-icon">✓</span><span><strong>Aulas diretas e organizadas</strong><small>Do fundamento à aplicação prática</small></span></div>
+          <div class="about-item"><span class="about-icon">4T</span><span><strong>Conteúdo profissional</strong><small>Produzido por quem atua na área</small></span></div>
+          <div class="about-item"><span class="about-icon">W</span><span><strong>Suporte próximo</strong><small>Atendimento via WhatsApp durante o curso</small></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><h2>Mecânica 4 Tempos</h2><p>Treinamentos profissionais para manutenção de motores, máquinas e equipamentos.</p></div>
+      <div><h3>Links Rápidos</h3><nav><a href="#inicio">Início</a><a href="#treinamentos">Treinamentos</a><a href="#sobre">Sobre nós</a></nav></div>
+      <div><h3>Contato</h3><nav><a href="https://wa.me/5537998060444?text=Olá%2C%20vim%20pela%20página%20de%20treinamentos." target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://instagram.com/mecanica4temposs" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.mecanica4tempos.com/" target="_blank" rel="noopener noreferrer">Site oficial</a></nav></div>
+    </div>
+    <div class="container copyright">© <span id="year"></span> Mecânica 4 Tempos. Todos os direitos reservados.</div>
+  </footer>
+
+  <div class="modal" id="courseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="backdrop" data-close-modal></div>
+    <div class="dialog" tabindex="-1">
+      <button class="close" type="button" data-close-modal aria-label="Fechar detalhes">✕</button>
+      <div class="dialog-head">
+        <span class="dialog-code" id="modalCode"></span>
+        <div class="dialog-title-wrap"><span class="dialog-status">Disponível</span><h2 id="modalTitle"></h2><p class="dialog-lead" id="modalLead"></p></div>
+      </div>
+      <div class="dialog-body">
+        <div><h3>Sobre o treinamento</h3><p class="description" id="modalDescription"></p><h3>Conteúdo do treinamento</h3><ul class="modules" id="modalModules"></ul></div>
+        <aside class="offer"><span class="offer-label">Investimento</span><strong class="modal-price" id="modalPrice"></strong><span class="payment" id="modalPayment"></span><div id="modalAction"></div><div class="offer-perks"><span>Certificado de conclusão</span><span>Suporte via WhatsApp</span><span>Acesso 100% online</span></div></aside>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const courses = [
+      {
+        id: 1, code: "KIT", number: "01", category: "Kit completo",
+        title: "KIT Manutenção Completa: Percussão + GXR120",
+        lead: "Dois treinamentos técnicos reunidos em uma formação completa.",
+        description: "Um kit pensado para profissionais que desejam dominar a manutenção de equipamentos de percussão e do motor GXR120 em uma jornada integrada.",
+        modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp durante o treinamento"],
+        moduleLabel: "Programa em definição", price: "R$ 1.090,00",
+        checkout: "https://pay.kiwify.com.br/Ob59J7V", payment: "Compra segura pela Kiwify"
+      },
+      {
+        id: 2, code: "120", number: "02", category: "Motores compactos",
+        title: "Manutenção Completa em Motores GXR120",
+        lead: "Conheça o motor GXR120 e revise seus principais sistemas.",
+        description: "Treinamento direcionado ao diagnóstico, desmontagem, inspeção e manutenção do motor GXR120 usado em equipamentos profissionais.",
+        modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp durante o treinamento"],
+        moduleLabel: "Programa em definição", price: "R$ 698,00",
+        checkout: "https://pay.kiwify.com.br/xVkjNIP", payment: "Compra segura pela Kiwify"
+      },
+      {
+        id: 3, code: "4T", number: "03", category: "Formação técnica",
+        title: "Manutenção Completa em Motores Estacionários",
+        lead: "Aprenda uma sequência clara para diagnosticar e revisar motores estacionários.",
+        description: "Uma formação prática para compreender o funcionamento, identificar falhas e executar a manutenção de motores estacionários com mais método e segurança.",
+        modules: ["Fundamentos do motor quatro tempos", "Sistemas de alimentação e ignição", "Diagnóstico e medições", "Desmontagem e inspeção", "Montagem, regulagem e testes"],
+        moduleLabel: "5 módulos", price: "R$ 497,00",
+        checkout: "https://pay.kiwify.com.br/YPJV4mT", payment: "Compra segura pela Kiwify"
+      },
+      {
+        id: 4, code: "P", number: "04", category: "Equipamentos de obra",
+        title: "Manutenção Completa em Percussões",
+        lead: "Entenda os sistemas e a rotina de manutenção dos compactadores de percussão.",
+        description: "Treinamento voltado à inspeção, diagnóstico e manutenção de equipamentos de percussão usados na compactação de solo.",
+        modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp durante o treinamento"],
+        moduleLabel: "Programa em definição", price: "R$ 698,00",
+        checkout: "https://pay.kiwify.com.br/iG7gsJJ", payment: "Compra segura pela Kiwify"
+      },
+      {
+        id: 5, code: "C", number: "05", category: "Revisão essencial",
+        title: "Revisão Completa em Carburadores",
+        lead: "Domine a inspeção, limpeza e validação de carburadores de pequenos motores.",
+        description: "Conteúdo objetivo para reconhecer componentes, identificar sintomas e executar uma rotina de revisão de carburadores com organização.",
+        modules: ["Funcionamento, desmontagem e inspeção", "Limpeza, montagem, regulagem e testes"],
+        moduleLabel: "2 módulos", price: "R$ 59,00",
+        checkout: "https://pay.kiwify.com.br/hoavDmm", payment: "Compra segura pela Kiwify"
+      },
+      {
+        id: 6, code: "G", number: "06", category: "Equipamentos de elevação",
+        title: "Manutenção Completa em Guincho de Coluna",
+        lead: "Aprenda a revisar o guincho de coluna com método, segurança e confiança.",
+        description: "Formação completa para profissionais e locadores que desejam compreender os principais sistemas, identificar falhas e executar a manutenção de guinchos.",
+        modules: ["Fundamentos e segurança", "Inspeção e diagnóstico", "Sistema elétrico e componentes", "Manutenção preventiva", "Testes finais e entrega"],
+        moduleLabel: "5 módulos", price: "R$ 799,00",
+        checkout: "https://pay.kiwify.com.br/BKXvtD7", payment: "Compra segura pela Kiwify"
+      },
+      {
+        id: 7, code: "GEN", number: "07", category: "Energia",
+        title: "Manutenção Completa em Geradores",
+        lead: "Formação dedicada aos sistemas de geração, diagnóstico e manutenção.",
+        description: "Treinamento para profissionais que desejam atuar com inspeção, diagnóstico e manutenção de geradores portáteis.",
+        modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp durante o treinamento"],
+        moduleLabel: "Programa em definição", price: "Consulte",
+        checkout: "https://wa.me/5537998060444?text=Olá%2C%20quero%20me%20inscrever%20no%20treinamento%20de%20Geradores.",
+        payment: "Inscrição disponível pelo atendimento da 4 Tempos"
+      }
+    ];
+
+    const track = document.getElementById("courseTrack");
+    const cardHTML = course => `
+      <article class="course-card" tabindex="0" role="button" aria-label="Ver detalhes de ${course.title}" data-course-id="${course.id}">
+        <div class="course-top"><span class="available">Disponível</span><span class="course-code">${course.code}</span><span class="course-number">${course.number}</span></div>
+        <div class="course-body">
+          <p class="course-category">${course.category}</p>
+          <h3>${course.title}</h3>
+          <p class="course-summary">${course.moduleLabel}</p>
+          <div class="benefits"><span>Certificado de conclusão</span><span>Suporte via WhatsApp</span></div>
+          <div class="course-footer"><span class="price"><small>Investimento</small><strong>${course.price}</strong></span><span class="details">Ver detalhes →</span></div>
+        </div>
+      </article>`;
+    track.innerHTML = courses.map(cardHTML).join("");
+
+    const modal = document.getElementById("courseModal");
+    const dialog = modal.querySelector(".dialog");
+    let lastFocused = null;
+
+    function openCourse(id) {
+      const course = courses.find(item => item.id === Number(id));
+      if (!course) return;
+      lastFocused = document.activeElement;
+      document.getElementById("modalCode").textContent = course.number;
+      document.getElementById("modalTitle").textContent = course.title;
+      document.getElementById("modalLead").textContent = course.lead;
+      document.getElementById("modalDescription").textContent = course.description;
+      document.getElementById("modalModules").innerHTML = course.modules.map(item => `<li>${item}</li>`).join("");
+      document.getElementById("modalPrice").textContent = course.price;
+      document.getElementById("modalPayment").textContent = course.payment;
+      document.getElementById("modalAction").innerHTML = `<a class="btn btn-red" href="${course.checkout}" target="_blank" rel="noopener noreferrer">${course.id === 7 ? "Solicitar inscrição" : "Comprar treinamento"} →</a>`;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      setTimeout(() => dialog.focus(), 20);
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      if (lastFocused) lastFocused.focus();
+    }
+
+    document.addEventListener("click", event => {
+      const card = event.target.closest("[data-course-id]");
+      if (card) openCourse(card.dataset.courseId);
+      if (event.target.closest("[data-close-modal]")) closeModal();
+      const control = event.target.closest("[data-scroll]");
+      if (control) {
+        const direction = control.dataset.scroll === "next" ? 1 : -1;
+        track.scrollBy({ left: Math.min(track.clientWidth * .86, 760) * direction, behavior: "smooth" });
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      const card = event.target.closest("[data-course-id]");
+      if (card && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        openCourse(card.dataset.courseId);
+      }
+      if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
+      if (event.key === "Tab" && modal.classList.contains("open")) {
+        const focusable = [...modal.querySelectorAll("button, a[href]")];
+        if (event.shiftKey && document.activeElement === focusable[0]) {
+          event.preventDefault();
+          focusable.at(-1).focus();
+        } else if (!event.shiftKey && document.activeElement === focusable.at(-1)) {
+          event.preventDefault();
+          focusable[0].focus();
+        }
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
