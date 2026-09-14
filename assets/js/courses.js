@@ -11,7 +11,7 @@
       modules: ["Funcionamento, desmontagem e inspeção", "Limpeza, montagem, regulagem e testes"],
       moduleLabel: "2 módulos",
       price: "R$ 59,00",
-      checkout: "https://pay.kiwify.com.br/hoavDmm",
+      checkout: "https://pay.kiwify.com.br/xVkjNIP",
       payment: "Compra segura pela Kiwify"
     },
     {
@@ -25,7 +25,7 @@
       modules: ["Fundamentos do motor quatro tempos", "Sistemas de alimentação e ignição", "Diagnóstico e medições", "Desmontagem e inspeção", "Montagem, regulagem e testes"],
       moduleLabel: "5 módulos",
       price: "R$ 497,00",
-      checkout: "https://pay.kiwify.com.br/YPJV4mT",
+      checkout: "https://pay.kiwify.com.br/iG7gsJJ",
       payment: "Compra segura pela Kiwify"
     },
     {
@@ -39,7 +39,7 @@
       modules: ["Fundamentos e segurança", "Inspeção e diagnóstico", "Sistema elétrico e componentes", "Manutenção preventiva", "Testes finais e entrega"],
       moduleLabel: "5 módulos",
       price: "R$ 799,00",
-      checkout: "https://pay.kiwify.com.br/BKXvtD7",
+      checkout: "https://pay.kiwify.com.br/Ob59J7V",
       payment: "Compra segura pela Kiwify"
     },
     {
@@ -53,7 +53,7 @@
       modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp"],
       moduleLabel: "Programa em definição",
       price: "R$ 1.090,00",
-      checkout: "https://pay.kiwify.com.br/Ob59J7V",
+      checkout: "https://wa.me/553798700630?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20kit%20dos%20treinamentos%20de%20compactador%20de%20solo",
       payment: "Compra segura pela Kiwify"
     },
     {
@@ -67,7 +67,7 @@
       modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp"],
       moduleLabel: "Programa em definição",
       price: "R$ 698,00",
-      checkout: "https://pay.kiwify.com.br/xVkjNIP",
+      checkout: "https://pay.kiwify.com.br/hoavDmm",
       payment: "Compra segura pela Kiwify"
     },
     {
@@ -81,7 +81,7 @@
       modules: ["Conteúdo programático em definição", "Certificado de conclusão incluso", "Suporte via WhatsApp"],
       moduleLabel: "Programa em definição",
       price: "R$ 698,00",
-      checkout: "https://pay.kiwify.com.br/iG7gsJJ",
+      checkout: "https://pay.kiwify.com.br/YPJV4mT",
       payment: "Compra segura pela Kiwify"
     },
     {
