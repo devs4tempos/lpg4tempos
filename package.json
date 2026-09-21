@@ -1,0 +1,17 @@
+{
+  "name": "mecanica-4-tempos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site e painel administrativo da Mecânica 4 Tempos",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "vercel-build": "npm run check",
+    "check": "node --check server.js && node --check admin/admin.js && node --check lib/vercel-core.js && node --check api/content.js && node --check api/admin/login.js && node --check api/admin/session.js && node --check api/admin/logout.js && node --check api/admin/files.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
+  }
+}
