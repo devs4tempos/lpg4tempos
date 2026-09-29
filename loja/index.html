@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#202124">
+  <meta name="description" content="Loja da Mecânica 4 Tempos: peças, componentes e itens para manutenção de máquinas. Faça seu pedido pelo WhatsApp.">
+  <title>Loja | Mecânica 4 Tempos</title>
+  <link rel="icon" type="image/png" href="../blog/imagens/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="loja.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-brand" href="../index.html" aria-label="Mecânica 4 Tempos, página inicial">
+        <img class="site-brand__mark" src="../blog/imagens/logo.png" alt="" width="44" height="44">
+        <span class="site-brand__text">
+          <span class="site-brand__name">Mecânica 4 Tempos</span>
+          <span class="site-brand__tagline">Loja de peças e componentes</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-controls="primaryNavigation" aria-expanded="false" data-menu-toggle>
+        <span class="menu-toggle__icon" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="primaryNavigation" aria-label="Navegação principal" data-site-nav>
+        <a href="../index.html"><i class="fas fa-house site-nav__icon" aria-hidden="true"></i><span>Início</span></a>
+        <a href="../index.html#servicos"><i class="fas fa-screwdriver-wrench site-nav__icon" aria-hidden="true"></i><span>Serviços</span></a>
+        <a href="../cursos/index.html"><i class="fas fa-graduation-cap site-nav__icon" aria-hidden="true"></i><span>Treinamentos</span></a>
+        <a href="../blog/index.html"><i class="fas fa-newspaper site-nav__icon" aria-hidden="true"></i><span>Blog</span></a>
+        <a href="index.html" aria-current="page"><i class="fas fa-store site-nav__icon" aria-hidden="true"></i><span>Loja</span></a>
+        <button class="site-nav__cart" type="button" data-open-cart aria-label="Abrir carrinho, 0 itens">
+          <i class="fas fa-cart-shopping" aria-hidden="true"></i>
+          <span>Carrinho</span>
+          <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="store-hero" id="inicio">
+      <div class="container store-hero__content" data-reveal>
+        <p class="eyebrow">Peças, componentes e ferramentas</p>
+        <h1>Loja Mecânica 4 Tempos</h1>
+        <p class="store-hero__copy">Monte seu pedido, confira os itens no carrinho e envie tudo para nossa equipe confirmar disponibilidade, compatibilidade e condições pelo WhatsApp.</p>
+        <div class="button-row button-row--center">
+          <a class="btn" href="#produtos"><i class="fas fa-store" aria-hidden="true"></i> Ver produtos</a>
+          <button class="btn btn--ghost-light" type="button" data-open-cart><i class="fas fa-cart-shopping" aria-hidden="true"></i> Abrir carrinho</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--muted" id="produtos">
+      <div class="container">
+        <div class="section-heading section-heading--center" data-reveal>
+          <p class="eyebrow">Catálogo da oficina</p>
+          <h2 class="section-title">Escolha seus itens</h2>
+          <p class="section-copy">Selecione os produtos desejados. Antes de fechar, nossa equipe confirma o modelo correto para sua máquina e informa o valor final do pedido.</p>
+        </div>
+        <div class="store-notice" role="note" data-reveal>
+          <i class="fas fa-circle-info" aria-hidden="true"></i>
+          <span>Valores e fotos ilustrativos. Disponibilidade, aplicação e valor final são confirmados individualmente pelo WhatsApp antes da compra.</span>
+        </div>
+        <div class="catalog-tools" data-reveal aria-label="Filtros do catálogo">
+          <label class="search-field" for="productSearch">
+            <span class="visually-hidden">Pesquisar produto ou categoria</span>
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <input class="form-control" id="productSearch" type="search" placeholder="Pesquisar por nome ou categoria" autocomplete="off" data-product-search>
+          </label>
+          <label class="filter-field" for="productCategory">
+            <span class="form-label">Categoria</span>
+            <select class="form-control" id="productCategory" data-product-category>
+              <option value="">Todas as categorias</option>
+            </select>
+          </label>
+          <button class="btn btn--outline catalog-clear" type="button" data-clear-filters disabled><i class="fas fa-rotate-left" aria-hidden="true"></i> Limpar</button>
+        </div>
+        <p class="product-results-status" id="productResultsStatus" role="status" aria-live="polite"></p>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="store-benefits" aria-label="Vantagens da loja">
+      <div class="container store-benefits__grid">
+        <article data-reveal><i class="fas fa-clipboard-check" aria-hidden="true"></i><div><h3>Pedido organizado</h3><p>Todos os itens e quantidades seguem juntos na mensagem.</p></div></article>
+        <article data-reveal><i class="fas fa-comments" aria-hidden="true"></i><div><h3>Atendimento direto</h3><p>Fale com a equipe pelo WhatsApp da Mecânica 4 Tempos.</p></div></article>
+        <article data-reveal><i class="fas fa-gears" aria-hidden="true"></i><div><h3>Compatibilidade</h3><p>Confirme o modelo da máquina antes de concluir a compra.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="atendimento">
+      <div class="container store-help" data-reveal>
+        <div>
+          <p class="eyebrow">Precisa de orientação?</p>
+          <h2>Não encontrou o que procura?</h2>
+          <p>Envie o modelo da sua máquina ou uma foto da peça. Nossa equipe ajuda a identificar o item adequado.</p>
+        </div>
+        <a class="btn" href="https://wa.me/553798700630?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20para%20encontrar%20uma%20pe%C3%A7a." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Falar no WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div>
+        <h2>Mecânica 4 Tempos</h2>
+        <p>Peças e componentes para manutenção de máquinas e equipamentos da construção civil.</p>
+      </div>
+      <div>
+        <h3>Links rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#atendimento">Atendimento</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contato</h3>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/553798700630" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+          <li><a href="mailto:mecanica4tempos@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> E-mail</a></li>
+          <li><a href="https://instagram.com/mecanica4tempos" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">© <span data-current-year></span> Mecânica 4 Tempos. Todos os direitos reservados.</div>
+  </footer>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true" data-cart-drawer>
+    <div class="cart-drawer__backdrop" data-close-cart></div>
+    <div class="cart-panel" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="cart-panel__head">
+        <div><p class="eyebrow">Seu pedido</p><h2 id="cartTitle">Carrinho</h2></div>
+        <button class="cart-panel__close" type="button" data-close-cart aria-label="Fechar carrinho">&times;</button>
+      </div>
+      <div class="cart-panel__body">
+        <div class="cart-empty" data-cart-empty>
+          <i class="fas fa-cart-shopping" aria-hidden="true"></i>
+          <h3>Seu carrinho está vazio</h3>
+          <p>Adicione produtos para montar seu pedido.</p>
+          <button class="btn" type="button" data-close-cart>Ver produtos</button>
+        </div>
+        <div class="cart-list" data-cart-list></div>
+        <div class="cart-summary" data-cart-summary hidden>
+          <div class="cart-summary__row"><span>Itens</span><strong data-cart-items>0</strong></div>
+          <div class="cart-summary__row"><span>Subtotal estimado</span><strong data-cart-subtotal>R$ 0,00</strong></div>
+          <label class="form-label" for="orderNotes">Observações do pedido <span>(opcional)</span></label>
+          <textarea class="form-control cart-notes" id="orderNotes" rows="3" placeholder="Informe modelo da máquina, medida, marca ou outra observação"></textarea>
+          <button class="btn cart-checkout" type="button" data-checkout><i class="fab fa-whatsapp" aria-hidden="true"></i> Comprar pelo WhatsApp</button>
+          <p class="cart-helper">A mensagem será aberta com a descrição completa dos produtos e quantidades.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="store-toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="../assets/js/site.js" defer></script>
+  <script src="loja.js" defer></script>
+</body>
+</html>
