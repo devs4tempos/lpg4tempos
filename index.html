@@ -4,24 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#202124">
-  <meta name="description" content="Manutenção preventiva e corretiva, peças e assistência para máquinas de construção civil em Divinópolis e região.">
-  <meta name="facebook-domain-verification" content="0et6zcyba0lxwq0qohctd8xvjvcuqk" />
-  <title>Mecânica 4 Tempos | Manutenção de Máquinas em Divinópolis</title>
-  <link rel="icon" type="image/png" href="blog/imagens/logo.png">
+  <meta name="description" content="Loja da Mecânica 4 Tempos: peças, componentes e itens para manutenção de máquinas. Faça seu pedido pelo WhatsApp.">
+  <title>Loja | Mecânica 4 Tempos</title>
+  <link rel="icon" type="image/png" href="../blog/imagens/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="loja.css">
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
-      <a class="site-brand" href="#inicio" aria-label="Mecânica 4 Tempos, página inicial">
-        <img class="site-brand__mark" src="blog/imagens/logo.png" alt="" width="44" height="44">
+      <a class="site-brand" href="../index.html" aria-label="Mecânica 4 Tempos, página inicial">
+        <img class="site-brand__mark" src="../blog/imagens/logo.png" alt="" width="44" height="44">
         <span class="site-brand__text">
           <span class="site-brand__name">Mecânica 4 Tempos</span>
-          <span class="site-brand__tagline">Máquinas para construção civil</span>
+          <span class="site-brand__tagline">Loja de peças e componentes</span>
         </span>
       </a>
 
@@ -30,128 +29,79 @@
       </button>
 
       <nav class="site-nav" id="primaryNavigation" aria-label="Navegação principal" data-site-nav>
-        <a href="#inicio" aria-current="page">Início</a>
-        <a href="#servicos">Serviços</a>
-        <a href="cursos/index.html">Treinamentos</a>
-        <a href="blog/index.html">Blog</a>
-        <a href="loja/index.html"><i class="fas fa-store site-nav__icon" aria-hidden="true"></i><span>Loja</span></a>
-        <a class="site-nav__cta" href="https://wa.me/5537998060444?text=Olá,%20vim%20pelo%20site!" target="_blank" rel="noopener noreferrer">Contato</a>
+        <a href="../index.html"><i class="fas fa-house site-nav__icon" aria-hidden="true"></i><span>Início</span></a>
+        <a href="../index.html#servicos"><i class="fas fa-screwdriver-wrench site-nav__icon" aria-hidden="true"></i><span>Serviços</span></a>
+        <a href="../cursos/index.html"><i class="fas fa-graduation-cap site-nav__icon" aria-hidden="true"></i><span>Treinamentos</span></a>
+        <a href="../blog/index.html"><i class="fas fa-newspaper site-nav__icon" aria-hidden="true"></i><span>Blog</span></a>
+        <a href="index.html" aria-current="page"><i class="fas fa-store site-nav__icon" aria-hidden="true"></i><span>Loja</span></a>
+        <button class="site-nav__cart" type="button" data-open-cart aria-label="Abrir carrinho, 0 itens">
+          <i class="fas fa-cart-shopping" aria-hidden="true"></i>
+          <span>Carrinho</span>
+          <span class="cart-count" data-cart-count aria-hidden="true">0</span>
+        </button>
       </nav>
     </div>
   </header>
 
   <main id="conteudo">
-    <section class="home-hero" id="inicio">
-      <div class="container home-hero__content" data-reveal>
-        <p class="eyebrow">Assistência técnica especializada</p>
-        <h1>Manutenção de Máquinas para Construção Civil</h1>
-        <p class="home-hero__copy">Mantenha seus equipamentos produtivos com manutenção preventiva, corretiva e peças de qualidade, atendidos por uma equipe experiente em Divinópolis e região.</p>
+    <section class="store-hero" id="inicio">
+      <div class="container store-hero__content" data-reveal>
+        <p class="eyebrow">Peças, componentes e ferramentas</p>
+        <h1>Loja Mecânica 4 Tempos</h1>
+        <p class="store-hero__copy">Monte seu pedido, confira os itens no carrinho e envie tudo para nossa equipe confirmar disponibilidade, compatibilidade e condições pelo WhatsApp.</p>
         <div class="button-row button-row--center">
-          <a class="btn" href="https://wa.me/5537998060444?text=Olá,%20vim%20pelo%20site%20e%20quero%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer">Solicitar orçamento</a>
-          <a class="btn btn--ghost-light" href="#servicos">Conhecer serviços</a>
+          <a class="btn" href="#produtos"><i class="fas fa-store" aria-hidden="true"></i> Ver produtos</a>
+          <button class="btn btn--ghost-light" type="button" data-open-cart><i class="fas fa-cart-shopping" aria-hidden="true"></i> Abrir carrinho</button>
         </div>
       </div>
     </section>
 
-    <section class="section section--muted" id="servicos">
+    <section class="section section--muted" id="produtos">
       <div class="container">
         <div class="section-heading section-heading--center" data-reveal>
-          <p class="eyebrow">Soluções para sua operação</p>
-          <h2 class="section-title">Nossos Serviços</h2>
-          <p class="section-copy">Atendimento técnico para reduzir paradas, preservar seus equipamentos e manter a rotina da obra funcionando.</p>
+          <p class="eyebrow">Catálogo da oficina</p>
+          <h2 class="section-title">Escolha seus itens</h2>
+          <p class="section-copy">Selecione os produtos desejados. Antes de fechar, nossa equipe confirma o modelo correto para sua máquina e informa o valor final do pedido.</p>
         </div>
-
-        <div class="service-grid">
-          <article class="card card--interactive service-card" data-reveal>
-            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-tools"></i></div>
-            <div class="service-card__body">
-              <h3>Manutenção Preventiva</h3>
-              <p>Inspeções, lubrificação e ajustes programados para evitar falhas inesperadas e aumentar a vida útil da máquina.</p>
-              <a class="btn" href="https://wa.me/5537998060444?text=Olá,%20quero%20agendar%20uma%20manutenção%20preventiva." target="_blank" rel="noopener noreferrer">Agendar manutenção</a>
-            </div>
-          </article>
-
-          <article class="card card--interactive service-card" data-reveal>
-            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-wrench"></i></div>
-            <div class="service-card__body">
-              <h3>Manutenção Corretiva</h3>
-              <p>Diagnóstico e reparo com agilidade para resolver problemas e reduzir o tempo de equipamento parado.</p>
-              <a class="btn" href="https://wa.me/5537998060444?text=Olá,%20preciso%20solicitar%20um%20reparo." target="_blank" rel="noopener noreferrer">Solicitar reparo</a>
-            </div>
-          </article>
-
-          <article class="card card--interactive service-card" data-reveal>
-            <div class="service-card__icon" aria-hidden="true"><i class="fas fa-cogs"></i></div>
-            <div class="service-card__body">
-              <h3>Peças e Componentes</h3>
-              <p>Peças de qualidade e procedência para diferentes marcas de máquinas e equipamentos da construção civil.</p>
-              <a class="btn" href="https://wa.me/5537998060444?text=Olá,%20quero%20consultar%20uma%20peça%20ou%20componente." target="_blank" rel="noopener noreferrer">Consultar peças</a>
-            </div>
-          </article>
+        <div class="store-notice" role="note" data-reveal>
+          <i class="fas fa-circle-info" aria-hidden="true"></i>
+          <span>Valores e fotos ilustrativos. Disponibilidade, aplicação e valor final são confirmados individualmente pelo WhatsApp antes da compra.</span>
         </div>
+        <div class="catalog-tools" data-reveal aria-label="Filtros do catálogo">
+          <label class="search-field" for="productSearch">
+            <span class="visually-hidden">Pesquisar produto ou categoria</span>
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <input class="form-control" id="productSearch" type="search" placeholder="Pesquisar por nome ou categoria" autocomplete="off" data-product-search>
+          </label>
+          <label class="filter-field" for="productCategory">
+            <span class="form-label">Categoria</span>
+            <select class="form-control" id="productCategory" data-product-category>
+              <option value="">Todas as categorias</option>
+            </select>
+          </label>
+          <button class="btn btn--outline catalog-clear" type="button" data-clear-filters disabled><i class="fas fa-rotate-left" aria-hidden="true"></i> Limpar</button>
+        </div>
+        <p class="product-results-status" id="productResultsStatus" role="status" aria-live="polite"></p>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
       </div>
     </section>
 
-    <section class="urgent-cta" aria-labelledby="urgenciaTitulo">
-      <div class="container" data-reveal>
-        <h2 id="urgenciaTitulo">Precisa de manutenção urgente?</h2>
-        <p>Nossa equipe está pronta para entender o problema e orientar o atendimento com rapidez e transparência.</p>
-        <div class="button-row button-row--center">
-          <a class="btn btn--light" href="tel:+553730151871"><i class="fas fa-phone" aria-hidden="true"></i> Ligar agora</a>
-          <a class="btn btn--ghost-light" href="https://wa.me/5537998060444?text=Olá,%20preciso%20de%20atendimento%20para%20uma%20máquina." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chamar no WhatsApp</a>
-        </div>
+    <section class="store-benefits" aria-label="Vantagens da loja">
+      <div class="container store-benefits__grid">
+        <article data-reveal><i class="fas fa-clipboard-check" aria-hidden="true"></i><div><h3>Pedido organizado</h3><p>Todos os itens e quantidades seguem juntos na mensagem.</p></div></article>
+        <article data-reveal><i class="fas fa-comments" aria-hidden="true"></i><div><h3>Atendimento direto</h3><p>Fale com a equipe pelo WhatsApp da Mecânica 4 Tempos.</p></div></article>
+        <article data-reveal><i class="fas fa-gears" aria-hidden="true"></i><div><h3>Compatibilidade</h3><p>Confirme o modelo da máquina antes de concluir a compra.</p></div></article>
       </div>
     </section>
 
-    <section class="section" id="sobre">
-      <div class="container about-grid">
-        <div class="about-visual" data-reveal>
-          <img src="img/logo.png" alt="Símbolo da Mecânica 4 Tempos" width="500" height="500" loading="lazy">
+    <section class="section" id="atendimento">
+      <div class="container store-help" data-reveal>
+        <div>
+          <p class="eyebrow">Precisa de orientação?</p>
+          <h2>Não encontrou o que procura?</h2>
+          <p>Envie o modelo da sua máquina ou uma foto da peça. Nossa equipe ajuda a identificar o item adequado.</p>
         </div>
-        <div class="about-copy" data-reveal>
-          <p class="eyebrow">Experiência que gera confiança</p>
-          <h2>Sobre a Mecânica 4 Tempos</h2>
-          <p>Com anos de experiência no mercado, a Mecânica 4 Tempos é referência em manutenção de máquinas para construção civil em Divinópolis e região.</p>
-          <p>Nossa equipe está preparada para atender desde pequenos reparos até manutenções complexas, sempre com agilidade, transparência e qualidade.</p>
-          <p>Valorizamos o relacionamento com nossos clientes e oferecemos soluções adequadas às necessidades de cada equipamento.</p>
-          <a class="btn" href="https://wa.me/5537998060444?text=Olá,%20vim%20pelo%20site%20e%20quero%20falar%20com%20a%20equipe." target="_blank" rel="noopener noreferrer">Falar com a equipe</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--muted" id="contato">
-      <div class="container">
-        <div class="section-heading section-heading--center" data-reveal>
-          <p class="eyebrow">Estamos à disposição</p>
-          <h2 class="section-title">Entre em Contato</h2>
-          <p class="section-copy">Escolha o canal mais conveniente para falar com a Mecânica 4 Tempos.</p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="card contact-card" data-reveal>
-            <div class="contact-card__icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
-            <h3>Endereço</h3>
-            <address>Rua Érico Veríssimo, 1435<br>São José, Divinópolis - MG</address>
-          </article>
-
-          <article class="card contact-card" data-reveal>
-            <div class="contact-card__icon" aria-hidden="true"><i class="fas fa-phone"></i></div>
-            <h3>Telefones</h3>
-            <p><a href="tel:+5537998060444">(37) 99806-0444</a><br><a href="tel:+553730151871">(37) 3015-1871</a></p>
-          </article>
-
-          <article class="card contact-card" data-reveal>
-            <div class="contact-card__icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
-            <h3>Funcionamento</h3>
-            <p>Segunda a sexta, das 7h às 17h<br>Sábado e domingo: fechado</p>
-          </article>
-
-          <article class="card contact-card" data-reveal>
-            <div class="contact-card__icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
-            <h3>E-mail</h3>
-            <p><a href="mailto:mecanica4tempos@gmail.com">mecanica4tempos@gmail.com</a></p>
-          </article>
-        </div>
+        <a class="btn" href="https://wa.me/553798700630?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20para%20encontrar%20uma%20pe%C3%A7a." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> Falar no WhatsApp</a>
       </div>
     </section>
   </main>
@@ -160,33 +110,59 @@
     <div class="container site-footer__grid">
       <div>
         <h2>Mecânica 4 Tempos</h2>
-        <p>Especialistas em manutenção de máquinas para construção civil, com atendimento em Divinópolis e região.</p>
+        <p>Peças e componentes para manutenção de máquinas e equipamentos da construção civil.</p>
       </div>
       <div>
         <h3>Links rápidos</h3>
         <ul class="footer-links">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#sobre">Sobre nós</a></li>
-          <li><a href="blog/index.html">Blog</a></li>
-          <li><a href="cursos/index.html">Treinamentos</a></li>
-          <li><a href="loja/index.html"><i class="fas fa-store" aria-hidden="true"></i> Loja</a></li>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#atendimento">Atendimento</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
         </ul>
       </div>
       <div>
         <h3>Contato</h3>
         <ul class="footer-links">
-          <li><a href="https://wa.me/5537998060444?text=Olá,%20vim%20pelo%20site!" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-          <li><a href="https://instagram.com/mecanica4tempos" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-          <li><a href="mailto:mecanica4tempos@gmail.com">E-mail</a></li>
-          <li><a href="https://maps.google.com/?q=Rua%20Érico%20Veríssimo%201435%20São%20José%2C%20Divinópolis%20-%20MG" target="_blank" rel="noopener noreferrer">Como chegar</a></li>
+          <li><a href="https://wa.me/553798700630" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+          <li><a href="mailto:mecanica4tempos@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i> E-mail</a></li>
+          <li><a href="https://instagram.com/mecanica4tempos" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram</a></li>
         </ul>
       </div>
     </div>
     <div class="container site-footer__bottom">© <span data-current-year></span> Mecânica 4 Tempos. Todos os direitos reservados.</div>
   </footer>
 
-  <script src="assets/js/site.js" defer></script>
-  <script src="/_vercel/insights/script.js" defer></script>
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true" data-cart-drawer>
+    <div class="cart-drawer__backdrop" data-close-cart></div>
+    <div class="cart-panel" role="dialog" aria-modal="true" tabindex="-1">
+      <div class="cart-panel__head">
+        <div><p class="eyebrow">Seu pedido</p><h2 id="cartTitle">Carrinho</h2></div>
+        <button class="cart-panel__close" type="button" data-close-cart aria-label="Fechar carrinho">&times;</button>
+      </div>
+      <div class="cart-panel__body">
+        <div class="cart-empty" data-cart-empty>
+          <i class="fas fa-cart-shopping" aria-hidden="true"></i>
+          <h3>Seu carrinho está vazio</h3>
+          <p>Adicione produtos para montar seu pedido.</p>
+          <button class="btn" type="button" data-close-cart>Ver produtos</button>
+        </div>
+        <div class="cart-list" data-cart-list></div>
+        <div class="cart-summary" data-cart-summary hidden>
+          <div class="cart-summary__row"><span>Itens</span><strong data-cart-items>0</strong></div>
+          <div class="cart-summary__row"><span>Subtotal estimado</span><strong data-cart-subtotal>R$ 0,00</strong></div>
+          <label class="form-label" for="orderNotes">Observações do pedido <span>(opcional)</span></label>
+          <textarea class="form-control cart-notes" id="orderNotes" rows="3" placeholder="Informe modelo da máquina, medida, marca ou outra observação"></textarea>
+          <button class="btn cart-checkout" type="button" data-checkout><i class="fab fa-whatsapp" aria-hidden="true"></i> Comprar pelo WhatsApp</button>
+          <p class="cart-helper">A mensagem será aberta com a descrição completa dos produtos e quantidades.</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="store-toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="../assets/js/site.js" defer></script>
+  <script src="loja.js" defer></script>
 </body>
 </html>
