@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Produto sem imagem</title>
+  <desc id="desc">Imagem provisória para produto sem fotografia cadastrada</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef3f6"/>
+      <stop offset="1" stop-color="#d9e3e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#background)"/>
+  <rect x="170" y="120" width="620" height="480" rx="32" fill="#ffffff" stroke="#b8c7d0" stroke-width="8"/>
+  <path d="M270 490l125-140 92 95 82-84 121 129H270z" fill="#c5d2da"/>
+  <circle cx="610" cy="265" r="42" fill="#f3bd3e"/>
+  <path d="M320 555h320" stroke="#8c9da8" stroke-width="12" stroke-linecap="round"/>
+  <text x="480" y="655" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#243746">Produto sem imagem</text>
+</svg>
