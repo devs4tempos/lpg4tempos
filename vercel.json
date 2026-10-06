@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/img/products/:name",
+      "destination": "/api/product-images?name=:name"
+    },
+    {
+      "source": "/loja/((?!.*\\.).+)",
+      "destination": "/loja/index.html"
+    }
+  ]
+}
