@@ -1,8 +1,0 @@
-FOTOS DOS MODELOS
-
-Quando quiser adicionar as fotos, coloque os arquivos nesta pasta com estes nomes:
-
-- kawashima-serie-e.webp
-- eco-terra.webp
-
-Use fotos em formato WebP para carregar mais rápido. A página troca as ilustrações pelas fotos automaticamente quando encontrar os arquivos. Se uma foto ainda não estiver nesta pasta, a ilustração correspondente continua aparecendo.
