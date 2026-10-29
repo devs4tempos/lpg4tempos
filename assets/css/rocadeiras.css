@@ -1,0 +1,785 @@
+.brushcutters-page {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mower-hero {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(ellipse at 78% 44%, rgb(211 47 47 / 22%), transparent 40%),
+    linear-gradient(125deg, #171719 0%, #242427 62%, #19191b 100%);
+}
+
+.mower-hero::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: repeating-linear-gradient(135deg, transparent 0 62px, rgb(255 255 255 / 2.4%) 62px 64px);
+  pointer-events: none;
+}
+
+.mower-hero__grid {
+  position: relative;
+  z-index: 1;
+  min-height: min(710px, calc(100svh - var(--header-height)));
+  padding-block: clamp(70px, 9vw, 112px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .92fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+}
+
+.mower-hero__copy {
+  max-width: 650px;
+}
+
+.mower-hero .eyebrow,
+.support-cta .eyebrow {
+  color: #ffb6b6;
+}
+
+.mower-hero h1 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: clamp(2.35rem, 5.5vw, 4.1rem);
+  line-height: 1.08;
+}
+
+.mower-hero__lead {
+  max-width: 560px;
+  margin-bottom: 26px;
+  color: #e5e5e7;
+  font-size: clamp(1.06rem, 1.8vw, 1.22rem);
+}
+
+.mower-hero__facts {
+  margin-bottom: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.mower-hero__facts span {
+  min-height: 43px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-radius: 7px;
+  color: #eeeeef;
+  background: rgb(255 255 255 / 6%);
+  font-size: .88rem;
+  font-weight: 650;
+}
+
+.mower-hero__facts b {
+  color: #ffb6b6;
+  font-size: 1.05rem;
+}
+
+.mower-hero__actions {
+  gap: 10px;
+}
+
+.mower-hero__note {
+  margin: 16px 0 0;
+  color: #b9b9bd;
+  font-size: .86rem;
+}
+
+.mower-hero__visual {
+  position: relative;
+  min-width: 0;
+  min-height: 340px;
+  padding: 24px 14px 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 11%);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 17%);
+}
+
+.visual-chip {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  padding: 7px 10px;
+  border: 1px solid rgb(255 255 255 / 15%);
+  border-radius: 999px;
+  color: #f0f0f1;
+  background: rgb(25 25 26 / 65%);
+  font-size: .76rem;
+  font-weight: 750;
+  letter-spacing: .04em;
+}
+
+.brushcutter-illustration {
+  width: min(100%, 540px);
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.mower-hero__visual-note {
+  position: absolute;
+  right: 15px;
+  bottom: 13px;
+  color: #4b4d51;
+  font-weight: 700;
+  font-size: .73rem;
+}
+
+.product-section {
+  background: #f5f6f7;
+}
+
+.product-section .section-heading {
+  margin-bottom: clamp(28px, 4vw, 42px);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.product-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.product-card--featured {
+  border-color: rgb(211 47 47 / 38%);
+  box-shadow: 0 13px 36px rgb(211 47 47 / 9%), var(--shadow-sm);
+}
+
+.product-card__visual {
+  position: relative;
+  min-height: clamp(185px, 22vw, 250px);
+  padding: 32px 18px 24px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 56% 56%, #ffffff 0, #f0f1f2 73%);
+}
+
+.product-card__visual::before {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  content: "";
+  border: 26px solid rgb(211 47 47 / 6%);
+  border-radius: 50%;
+}
+
+.product-card__visual--eco::before {
+  border-color: rgb(105 127 54 / 9%);
+}
+
+.product-card__visual svg {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 480px);
+  height: auto;
+  filter: drop-shadow(0 9px 9px rgb(32 33 36 / 10%));
+}
+
+.product-card__photo {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 32px 18px 24px;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.product-card__visual.has-photo svg {
+  visibility: hidden;
+}
+
+.product-card__visual.has-photo .product-card__photo {
+  opacity: 1;
+}
+
+.product-card__photo[hidden] {
+  display: none;
+}
+
+.product-card__visual.has-photo .product-card__photo-note {
+  display: none;
+}
+
+.product-card__visual-label {
+  position: absolute;
+  z-index: 3;
+  top: 15px;
+  left: 17px;
+  padding: 5px 9px;
+  border-radius: 5px;
+  color: #3f4145;
+  background: rgb(255 255 255 / 88%);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.product-card__photo-note {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  color: #707277;
+  font-size: .7rem;
+}
+
+.product-card__body {
+  padding: clamp(22px, 3vw, 32px);
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.product-card__eyebrow {
+  margin-bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+}
+
+.engine-label {
+  color: #5f6268;
+  font-size: .78rem;
+  font-weight: 750;
+}
+
+.badge--green {
+  color: #425321;
+  background: #eef2e5;
+}
+
+.product-card h3 {
+  margin-bottom: 9px;
+  font-size: clamp(1.45rem, 2.3vw, 1.8rem);
+}
+
+.product-card__summary {
+  min-height: 3.2em;
+  margin-bottom: 20px;
+  color: var(--color-muted);
+  font-size: .94rem;
+}
+
+.price-box {
+  margin-bottom: 22px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ececee;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.price-box__label {
+  margin-bottom: 3px;
+  display: block;
+  color: #65686e;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.price-box__installments {
+  display: block;
+  color: #35363a;
+  font-size: .91rem;
+}
+
+.price-box__installments span {
+  color: #222326;
+  font-size: 1.2rem;
+}
+
+.price-box__total {
+  margin-top: 2px;
+  display: block;
+  color: #74767b;
+  font-size: .74rem;
+}
+
+.price-box__cash {
+  min-height: 66px;
+  padding-left: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid #dedfe2;
+}
+
+.price-box__cash strong {
+  color: var(--color-primary-dark);
+  font-size: clamp(1.13rem, 1.8vw, 1.42rem);
+  line-height: 1.2;
+}
+
+.included-list {
+  margin-bottom: 24px;
+}
+
+.included-list h4 {
+  margin-bottom: 10px;
+  font-size: .95rem;
+}
+
+.included-list ul {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 13px;
+  list-style: none;
+}
+
+.included-list li {
+  position: relative;
+  min-width: 0;
+  padding-left: 21px;
+  color: #4d4f53;
+  font-size: .86rem;
+  line-height: 1.45;
+}
+
+.included-list li::before {
+  position: absolute;
+  top: .04em;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  content: "✓";
+  border-radius: 50%;
+  color: #ffffff;
+  background: var(--color-success);
+  font-size: .65rem;
+  font-weight: 850;
+}
+
+.product-card__cta {
+  width: 100%;
+  min-height: 52px;
+  margin-top: auto;
+}
+
+.catalog-note {
+  margin: 21px 0 0;
+  color: #6e7075;
+  font-size: .82rem;
+  text-align: center;
+}
+
+.comparison-section {
+  background: #ffffff;
+}
+
+.comparison-section .section-heading {
+  margin-bottom: 30px;
+}
+
+.comparison-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e9eaec;
+  vertical-align: top;
+  font-size: .9rem;
+  line-height: 1.45;
+}
+
+.comparison-table thead th {
+  color: #ffffff;
+  background: #252629;
+  font-size: .88rem;
+}
+
+.comparison-table thead th:first-child {
+  border-radius: 11px 0 0 0;
+}
+
+.comparison-table thead th:last-child {
+  border-radius: 0 11px 0 0;
+}
+
+.comparison-table tbody th {
+  width: 23%;
+  color: #3e4044;
+  background: #f7f7f8;
+  font-weight: 750;
+}
+
+.comparison-table tbody tr:last-child th,
+.comparison-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.support-cta {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(58px, 8vw, 82px);
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 18%, rgb(211 47 47 / 25%), transparent 27%),
+    #202124;
+  text-align: center;
+}
+
+.support-cta h2 {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+}
+
+.support-cta p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 0 auto 22px;
+  color: #dedee0;
+}
+
+.support-cta__number {
+  margin-top: 11px;
+  display: block;
+  color: #cccccf;
+  font-size: .84rem;
+}
+
+.faq-container {
+  max-width: 850px;
+}
+
+.faq-section .section-heading {
+  margin-bottom: 25px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-list details {
+  border: 1px solid var(--color-border);
+  border-radius: 9px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgb(25 25 25 / 4%);
+}
+
+.faq-list summary {
+  min-height: 54px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #303136;
+  font-weight: 750;
+  line-height: 1.4;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::after {
+  flex: 0 0 auto;
+  content: "+";
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.faq-list details[open] summary::after {
+  content: "−";
+}
+
+.faq-list details p {
+  margin: 0;
+  padding: 0 18px 17px;
+  color: var(--color-muted);
+  font-size: .92rem;
+}
+
+.site-footer__brand {
+  padding-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.site-footer__brand img {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #ffffff;
+  object-fit: contain;
+}
+
+.site-footer__brand h2 {
+  margin: 0 0 2px;
+  font-size: 1rem;
+}
+
+.site-footer__brand p {
+  margin: 0;
+  font-size: .82rem;
+}
+
+.site-footer__brand > a {
+  min-height: 44px;
+  margin-left: auto;
+  padding: 9px 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #45454a;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer__brand > a:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-dark);
+}
+
+.mobile-buy-bar {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .mower-hero__grid {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .78fr);
+    gap: 28px;
+  }
+
+  .mower-hero__visual {
+    min-height: 270px;
+  }
+
+  .product-card__body {
+    padding: 23px;
+  }
+
+  .included-list ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .brushcutters-page {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+
+  .mower-hero__grid {
+    padding-block: 62px 50px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .mower-hero__copy {
+    max-width: 570px;
+  }
+
+  .mower-hero h1 {
+    max-width: 590px;
+    font-size: clamp(2.25rem, 10vw, 3.35rem);
+  }
+
+  .mower-hero__visual {
+    min-height: 250px;
+    max-height: 360px;
+  }
+
+  .product-grid {
+    max-width: 560px;
+    margin-inline: auto;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-card__visual {
+    min-height: 225px;
+  }
+
+  .included-list ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mobile-buy-bar {
+    position: fixed;
+    z-index: 950;
+    inset: auto 0 0;
+    min-height: 66px;
+    padding: 10px max(18px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    color: #ffffff;
+    background: #16833f;
+    box-shadow: 0 -4px 18px rgb(0 0 0 / 18%);
+    font-weight: 800;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .mobile-buy-bar:focus-visible {
+    outline-offset: -5px;
+  }
+
+  .mobile-buy-bar__icon {
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 62%);
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .mower-hero__facts {
+    gap: 7px;
+  }
+
+  .mower-hero__facts span {
+    min-height: 39px;
+    padding: 7px 9px;
+    font-size: .77rem;
+  }
+
+  .mower-hero__actions .btn {
+    width: 100%;
+  }
+
+  .mower-hero__visual {
+    min-height: 205px;
+    padding-inline: 7px;
+  }
+
+  .visual-chip {
+    top: 10px;
+    left: 10px;
+    font-size: .69rem;
+  }
+
+  .product-card__body {
+    padding: 20px 17px;
+  }
+
+  .product-card__visual {
+    min-height: 195px;
+  }
+
+  .product-card__eyebrow {
+    align-items: flex-start;
+  }
+
+  .price-box {
+    padding: 13px 11px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+    gap: 8px;
+  }
+
+  .price-box__installments span {
+    display: block;
+    font-size: 1.13rem;
+  }
+
+  .price-box__cash {
+    padding-left: 9px;
+  }
+
+  .price-box__cash strong {
+    font-size: 1.05rem;
+  }
+
+  .included-list ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: 10px 7px;
+    font-size: .74rem;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer__brand {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .site-footer__brand > div {
+    flex: 1 1 calc(100% - 64px);
+  }
+
+  .site-footer__brand > a {
+    width: 100%;
+    margin: 4px 0 0;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mower-hero *,
+  .product-card * {
+    scroll-behavior: auto;
+  }
+}

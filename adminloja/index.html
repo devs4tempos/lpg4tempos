@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Loja | Mecânica 4 Tempos</title>
+  <link rel="stylesheet" href="adminloja.css">
+</head>
+<body>
+  <main class="admin-app">
+    <section class="auth-shell" id="loginView" aria-labelledby="loginTitle">
+      <div class="auth-card">
+        <a class="back-link" href="../loja/">← Voltar para a loja</a>
+        <p class="eyebrow">Área restrita</p>
+        <h1 id="loginTitle">Administração da loja</h1>
+        <p class="auth-copy">Entre para gerenciar produtos, preços, categorias e imagens.</p>
+        <form class="admin-form" data-login-form>
+          <label>Usuário
+            <input type="text" name="username" autocomplete="username" required>
+          </label>
+          <label>Senha
+            <input type="password" name="password" autocomplete="current-password" required>
+          </label>
+          <p class="form-error" data-login-error role="alert" hidden></p>
+          <button class="admin-button admin-button--primary" type="submit">Entrar no painel</button>
+        </form>
+        <p class="security-note">A sessão é protegida no servidor e expira automaticamente.</p>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboardView" hidden>
+      <header class="admin-header">
+        <div>
+          <p class="eyebrow">Painel administrativo</p>
+          <h1>Controle da loja</h1>
+        </div>
+        <div class="admin-header__actions">
+          <span class="session-user" data-session-user></span>
+          <a class="admin-button admin-button--ghost" href="../loja/">Ver loja</a>
+          <button class="admin-button admin-button--ghost" type="button" data-logout>Sair</button>
+        </div>
+      </header>
+
+      <section class="dashboard-toolbar" aria-label="Ferramentas do catálogo">
+        <div class="toolbar-search">
+          <label for="adminSearch">Pesquisar</label>
+          <input id="adminSearch" type="search" placeholder="Nome ou categoria" data-admin-search>
+        </div>
+        <div>
+          <label for="adminCategory">Categoria</label>
+          <select id="adminCategory" data-admin-category>
+            <option value="">Todas as categorias</option>
+          </select>
+        </div>
+        <button class="admin-button admin-button--primary" type="button" data-new-product>+ Adicionar produto</button>
+        <button class="admin-button admin-button--save" type="button" data-save-all>Salvar alterações</button>
+        <span class="save-status" data-save-status role="status" aria-live="polite"></span>
+      </section>
+
+      <section class="category-manager" aria-labelledby="categoryManagerTitle">
+        <div class="category-manager__heading">
+          <div>
+            <p class="eyebrow">Organização do catálogo</p>
+            <h2 id="categoryManagerTitle">Categorias</h2>
+            <p>Crie categorias para reutilizar nos produtos. A exclusão só é permitida quando nenhum produto estiver usando a categoria.</p>
+          </div>
+          <span class="category-manager__count" data-category-count>0</span>
+        </div>
+        <form class="category-form" data-category-form>
+          <label for="newCategory" class="visually-hidden">Nova categoria</label>
+          <input id="newCategory" type="text" maxlength="80" placeholder="Ex.: Motores" data-new-category required>
+          <button class="admin-button admin-button--primary" type="submit">Adicionar categoria</button>
+        </form>
+        <div class="category-list" data-category-list></div>
+      </section>
+
+      <div class="dashboard-layout">
+        <aside class="product-sidebar" aria-label="Lista de produtos">
+          <div class="sidebar-heading">
+            <h2>Produtos</h2>
+            <span data-product-count>0</span>
+          </div>
+          <div class="product-list" data-product-list></div>
+        </aside>
+
+        <section class="editor-card" aria-labelledby="editorTitle">
+          <div class="editor-empty" data-editor-empty>
+            <span class="empty-icon">✎</span>
+            <h2>Selecione um produto</h2>
+            <p>Escolha um item na lista ou adicione um novo produto para editar os dados.</p>
+          </div>
+
+          <form class="product-editor" data-product-editor hidden>
+            <div class="editor-heading">
+              <div>
+                <p class="eyebrow">Edição visual</p>
+                <h2 id="editorTitle">Editar produto</h2>
+              </div>
+              <span class="draft-badge" data-draft-badge hidden>Não salvo</span>
+            </div>
+
+            <input type="hidden" data-field="id">
+            <div class="editor-grid">
+              <label class="field field--wide">Nome do produto
+                <input type="text" data-field="name" maxlength="160" required>
+              </label>
+              <label class="field">Preço (R$)
+                <input type="number" data-field="price" min="0" max="10000000" step="0.01" required>
+              </label>
+              <label class="field">Categoria
+                <input type="text" data-field="category" list="categoryOptions" maxlength="80" required>
+                <datalist id="categoryOptions"></datalist>
+              </label>
+              <label class="field field--wide">Descrição
+                <textarea data-field="description" maxlength="500" rows="3"></textarea>
+              </label>
+              <label class="field field--wide">Imagem (URL, caminho ou arquivo)
+                <input type="text" data-field="image" maxlength="900000" placeholder="img/products/minha-foto.jpg">
+                <input class="file-input" type="file" accept="image/*" data-image-file>
+                <small>Escolha um arquivo para gerar uma imagem otimizada ou informe um caminho/URL.</small>
+              </label>
+              <div class="image-preview-wrap">
+                <span>Pré-visualização</span>
+                <img class="image-preview" data-image-preview alt="Pré-visualização do produto">
+              </div>
+              <label class="field">Ícone (opcional)
+                <input type="text" data-field="icon" maxlength="80" placeholder="fa-gears">
+              </label>
+            </div>
+
+            <div class="editor-actions">
+              <button class="admin-button admin-button--primary" type="submit">Aplicar no rascunho</button>
+              <button class="admin-button admin-button--danger" type="button" data-delete-product>Excluir produto</button>
+            </div>
+          </form>
+        </section>
+      </div>
+      <p class="dashboard-help">As alterações ficam no rascunho até você clicar em <strong>Salvar alterações</strong>. Depois de salvas, aparecem para todos os visitantes sem novo deploy.</p>
+    </section>
+
+    <div class="admin-toast" data-admin-toast role="status" aria-live="polite"></div>
+  </main>
+  <script src="adminloja.js" defer></script>
+</body>
+</html>
